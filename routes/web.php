@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+	$tasks = [
+		'Go to work',
+		'Finish VueJS',
+		'Continue Laravel'
+	];
+
+    // return view('welcome', ['tasks' => $tasks ]);
+    return view('welcome', compact('tasks'));
 });
 
 Route::get('/about', function() {
