@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <h1>About World</h1>
+	<h1>{{ $task->content }}</h1>
     
 </body>
 </html>

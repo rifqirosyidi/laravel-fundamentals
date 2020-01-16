@@ -11,18 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/tasks', function () {
 
-	$tasks = [
-		'Go to work',
-		'Finish VueJS',
-		'Continue Laravel'
-	];
+	$tasks = DB::table('tasks')->get();
 
     // return view('welcome', ['tasks' => $tasks ]);
-    return view('welcome', compact('tasks'));
+    return view('tasks.index', compact('tasks'));
 });
 
-Route::get('/about', function() {
-	return view('about');
+Route::get('/tasks/{task}', function ($id) {
+	
+	$task = DB::table('tasks')->find($id);
+	
+	return view('tasks.show', compact('task'));
+
 });
+
